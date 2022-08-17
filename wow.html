@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Minecraft simulation</title>
+  <link rel="stylesheet" href="wow.style.css">
+
+</head>
+<body>
+<header>
+    <span id="wrap"></span>
+    <span id="arrow"></span>
+    <h1>Perlin Noise based Minecraft Tunnel</h1>
+    <span class='header-open'> click on <label id="label">+</label> for more info </span>
+
+    <div class="description">
+        <div class="horizontal-line">
+            <span style="width: 100%"></span>
+        </div>
+
+        <section id="about">            
+            <p id accesskey="a" class="about">
+                <p>Canvas experiment based on Notch <a href="http://jsfiddle.net/uzMPU/">Minecraft renderer </a> using perlin noise for random map generation and fake shadow and fog for atmospheric environment.</p>
+                <p>The perlin noise algorithm was ported to JS from the    original Java class <a target="_blank" href="https://mrl.nyu.edu/~perlin/noise/">https://mrl.nyu.edu/~perlin/noise/</a>.</p>
+            </p>            
+
+        </section>
+    </div>
+
+    <div class="vertical-line"></div>    
+
+</header> 
+
+<div class="wrapper">   
+    <div class="context"></div> 
+    <h1>Look around by dragging and holding the mouse button</h1>   
+</div> 
+<div id="gui"></div>
+
+<script>
+    function getIEVersion() {
+        var rv = -1;
+        if (navigator.appName == 'Microsoft Internet Explorer') {
+            var ua = navigator.userAgent;
+            var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+            if (re.test(ua) != null)
+                rv = parseFloat( RegExp.$1 );
+        }
+        return rv;
+    }
+
+
+    function checkVersion() {
+        var ver = getIEVersion();
+
+        if ( ver != -1 ) {
+            if (ver <= 9.0) {
+                document.body.innerHTML = "";
+                document.body.innerHTML =
+                        "<p class='no-canvas'>" +
+                                "You need a <a href='https://www.google.com/chrome'>modern browser</a> to view this experiment." +
+                        "</p>";
+            }
+        }
+    }
+
+    checkVersion();
+
+</script>
+  <script  src="wow.script.js"></script>
+
+</body>
+</html>
